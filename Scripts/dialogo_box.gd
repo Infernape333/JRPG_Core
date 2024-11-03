@@ -26,7 +26,7 @@ func start():
 		player.set_dialogue_active(true)
 	
 func load_dialogue():
-	var file = FileAccess.open("res://dialogos/Dialogo1.json", FileAccess.READ)
+	var file = FileAccess.open("res://Assets/dialogos/Dialogo1.json", FileAccess.READ)
 	var content = JSON.parse_string(file.get_as_text())
 	return content
 	

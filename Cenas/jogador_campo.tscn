@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/jogador_campo.gd" id="1_d8yjh"]
 [ext_resource type="Texture2D" uid="uid://be886c5wjpscc" path="res://Assets/GB Clergy #1 Free Files/#14 L Brandon/Type 1/Idle/Idle_East_2.png" id="2_hich1"]
 [ext_resource type="Texture2D" uid="uid://ccgv3ul6rrtnv" path="res://Assets/GB Clergy #1 Free Files/#14 L Brandon/Type 1/Attack/Attack_South_0.png" id="3_p7bha"]
-[ext_resource type="Texture2D" path="res://Sprites_Player/Gingado.png" id="4_h808u"]
+[ext_resource type="Texture2D" uid="uid://d0a3w5vp0vmlm" path="res://Sprites_Player/Gingado.png" id="4_h808u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r37qd"]
 size = Vector2(20, 42.5714)

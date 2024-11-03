@@ -120,7 +120,6 @@ metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_tfl48")
 animation = &"Ponteira"
 frame = 8
@@ -128,7 +127,6 @@ frame_progress = 1.0
 
 [node name="Collision_jogador" type="CollisionShape2D" parent="."]
 position = Vector2(1, 7)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_l0bts")
 
 [node name="Collision_jogador_mao" type="CollisionShape2D" parent="."]
