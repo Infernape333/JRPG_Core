@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b12aekns87e1b" path="res://Cenas/jogador_ataque.tscn" id="2_8cw42"]
 [ext_resource type="PackedScene" uid="uid://rrf8xw5lvajn" path="res://Cenas/inimigo_campo.tscn" id="2_s1qhr"]
 [ext_resource type="PackedScene" uid="uid://dbpwkt27xwi6t" path="res://Cenas/inimigo_ataque.tscn" id="4_l7tnl"]
-[ext_resource type="Theme" path="res://Assets/tema_butaoha.tres" id="5_ftkir"]
+[ext_resource type="Theme" uid="uid://b58wd682c5ioc" path="res://Assets/tema_butaoha.tres" id="5_ftkir"]
 [ext_resource type="Script" path="res://Scripts/hitZone.gd" id="5_rocsi"]
 [ext_resource type="Texture2D" uid="uid://gs1e183lr28g" path="res://Assets/arrowEsquerda.png" id="6_7wwi1"]
 [ext_resource type="Script" path="res://Scripts/Control.gd" id="6_m7klb"]

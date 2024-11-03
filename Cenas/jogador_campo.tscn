@@ -144,7 +144,6 @@ script = ExtResource("1_d8yjh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="area_dano"]
 position = Vector2(1.63487e-06, 3.57143)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_r37qd")
 debug_color = Color(0.984314, 0, 0, 0.419608)
 
@@ -156,7 +155,6 @@ frame_progress = 0.544577
 
 [node name="Collision_jogador" type="CollisionShape2D" parent="."]
 position = Vector2(-0.285714, 3.28572)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_l0bts")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
