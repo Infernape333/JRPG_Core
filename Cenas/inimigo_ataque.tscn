@@ -1,0 +1,111 @@
+[gd_scene load_steps=7 format=3 uid="uid://dbpwkt27xwi6t"]
+
+[ext_resource type="Script" path="res://Scripts/inimigo_ataque.gd" id="1_x5qka"]
+[ext_resource type="Texture2D" uid="uid://cix2t537oho5p" path="res://Assets/Fire Worm/Sprites/Worm/Attack.png" id="2_saqff"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l0bts"]
+size = Vector2(17, 23.6667)
+
+[sub_resource type="Animation" id="Animation_v7u0n"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Animated_inimigo:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_saqff")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Animated_inimigo:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [16]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Animated_inimigo:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_sxhjn"]
+resource_name = "ataque"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Animated_inimigo:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_saqff")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Animated_inimigo:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [16]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Animated_inimigo:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 15]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jxff7"]
+_data = {
+"RESET": SubResource("Animation_v7u0n"),
+"ataque": SubResource("Animation_sxhjn")
+}
+
+[node name="inimigo_ataque" type="CharacterBody2D"]
+scale = Vector2(3.5, 3.5)
+script = ExtResource("1_x5qka")
+
+[node name="Animated_inimigo" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_saqff")
+flip_h = true
+hframes = 16
+
+[node name="Collision_inimigo" type="CollisionShape2D" parent="."]
+position = Vector2(-10.1667, -0.166667)
+shape = SubResource("RectangleShape2D_l0bts")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_jxff7")
+}

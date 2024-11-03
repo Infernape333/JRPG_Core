@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://gusy4vu2xha4"]
+
+[ext_resource type="Texture2D" uid="uid://d5kdau5vn38d" path="res://Assets/arrowEsquerda.png" id="1_7d6ff"]
+[ext_resource type="Script" path="res://Scripts/arrow.gd" id="1_7qrvj"]
+
+[node name="ArrowEsquerda" type="Node2D"]
+script = ExtResource("1_7qrvj")
+arrow_type = "left"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_7d6ff")

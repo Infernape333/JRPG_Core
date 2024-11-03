@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://btmyswyyidqm3"]
+
+[ext_resource type="Script" path="res://Scripts/dialogo_box.gd" id="1_8p3dc"]
+[ext_resource type="Texture2D" uid="uid://ccatefc5t2tbm" path="res://Salmon Typewriter fonts/Retro_Textbox_01-A_Transparent.png" id="2_jbivq"]
+[ext_resource type="FontFile" uid="uid://2agy4v1jhmrf" path="res://Salmon Typewriter fonts/Salmon Typewriter 9 Bold.ttf" id="3_70clr"]
+
+[node name="DialogoBox" type="CanvasLayer"]
+script = ExtResource("1_8p3dc")
+d_file = "res://dialogos/Dialogo1.json"
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+texture_filter = 1
+offset_top = 489.0
+offset_right = 446.0
+offset_bottom = 553.0
+scale = Vector2(2.55883, 2.55883)
+texture = ExtResource("2_jbivq")
+
+[node name="Name" type="RichTextLabel" parent="NinePatchRect"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 38.0
+offset_top = 10.0
+offset_right = 1084.0
+offset_bottom = 86.0
+scale = Vector2(0.55, 0.55)
+theme_override_fonts/normal_font = ExtResource("3_70clr")
+text = "Name"
+
+[node name="Chat" type="RichTextLabel" parent="NinePatchRect"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 38.6896
+offset_top = 25.0114
+offset_right = 539.69
+offset_bottom = 76.0114
+scale = Vector2(0.7, 0.7)
+theme_override_fonts/normal_font = ExtResource("3_70clr")
+text = "Dialoguing
+"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.001
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

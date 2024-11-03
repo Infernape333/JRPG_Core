@@ -1,0 +1,85 @@
+[gd_scene load_steps=13 format=3 uid="uid://3ivnfsvn1a5j"]
+
+[ext_resource type="Texture2D" uid="uid://dl21v75xolxit" path="res://Sprites_Player/Idle_Strip_South.png" id="1_f0b48"]
+[ext_resource type="Script" path="res://Scripts/npc.gd" id="1_g14j7"]
+[ext_resource type="Texture2D" uid="uid://cys4u7dcjbmn" path="res://Assets/Box_Style2 (1).png" id="2_q78q8"]
+[ext_resource type="Script" path="res://Scripts/NPCDialogue.gd" id="4_5waae"]
+[ext_resource type="PackedScene" uid="uid://btmyswyyidqm3" path="res://Cenas/dialogo_box.tscn" id="5_8ikrp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tnlnw"]
+atlas = ExtResource("1_f0b48")
+region = Rect2(0, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wtmhy"]
+atlas = ExtResource("1_f0b48")
+region = Rect2(24, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n3vqf"]
+atlas = ExtResource("1_f0b48")
+region = Rect2(48, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n8vce"]
+atlas = ExtResource("1_f0b48")
+region = Rect2(72, 0, 24, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6a57k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tnlnw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wtmhy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n3vqf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n8vce")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wycc3"]
+radius = 7.0
+height = 22.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_64m82"]
+radius = 21.0238
+
+[node name="NPC" type="CharacterBody2D"]
+script = ExtResource("1_g14j7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(1.183, 1.183)
+sprite_frames = SubResource("SpriteFrames_6a57k")
+frame_progress = 0.936238
+
+[node name="Colisão" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6)
+shape = SubResource("CapsuleShape2D_wycc3")
+
+[node name="Butao" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(0, -17)
+scale = Vector2(0.583333, 0.583333)
+texture = ExtResource("2_q78q8")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("4_5waae")
+
+[node name="Area" type="CollisionShape2D" parent="Area2D"]
+visible = false
+position = Vector2(0, 5)
+shape = SubResource("CircleShape2D_64m82")
+
+[node name="DialogoBox" parent="." instance=ExtResource("5_8ikrp")]
+
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

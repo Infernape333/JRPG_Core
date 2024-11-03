@@ -1,0 +1,111 @@
+[gd_scene load_steps=15 format=3 uid="uid://d1t06uveac1p"]
+
+[ext_resource type="Script" path="res://Scripts/jogador_campo.gd" id="1_d8yjh"]
+[ext_resource type="Texture2D" uid="uid://bji0rbmxax7cp" path="res://Assets/GB Clergy #1 Free Files/#14 L Brandon/Type 1/Idle/Idle_Strip_South.png" id="2_5c7kg"]
+[ext_resource type="Texture2D" uid="uid://be886c5wjpscc" path="res://Assets/GB Clergy #1 Free Files/#14 L Brandon/Type 1/Idle/Idle_East_2.png" id="2_hich1"]
+[ext_resource type="Texture2D" uid="uid://ccgv3ul6rrtnv" path="res://Assets/GB Clergy #1 Free Files/#14 L Brandon/Type 1/Attack/Attack_South_0.png" id="3_p7bha"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r37qd"]
+size = Vector2(6, 18.6667)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4dmle"]
+atlas = ExtResource("2_hich1")
+region = Rect2(0, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ood5h"]
+atlas = ExtResource("3_p7bha")
+region = Rect2(0, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w56p1"]
+atlas = ExtResource("2_5c7kg")
+region = Rect2(0, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qjq2h"]
+atlas = ExtResource("2_5c7kg")
+region = Rect2(24, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iikuv"]
+atlas = ExtResource("2_5c7kg")
+region = Rect2(48, 0, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xymf7"]
+atlas = ExtResource("2_5c7kg")
+region = Rect2(72, 0, 24, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ddni5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4dmle")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ood5h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ood5h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ood5h")
+}],
+"loop": false,
+"name": &"dano",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w56p1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qjq2h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iikuv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xymf7")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l0bts"]
+size = Vector2(6, 19)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qiwdk"]
+bg_color = Color(0.680431, 0.172632, 0.234211, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="jogador_campo" type="CharacterBody2D"]
+self_modulate = Color(30, 100, 1, 1)
+scale = Vector2(3.5, 3.5)
+script = ExtResource("1_d8yjh")
+
+[node name="area_dano" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area_dano"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_r37qd")
+debug_color = Color(0.984314, 0, 0, 0.419608)
+
+[node name="Animated_jogador" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_ddni5")
+animation = &"dano"
+
+[node name="Collision_jogador" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_l0bts")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -19.7143
+offset_top = -15.1429
+offset_right = 19.2857
+offset_bottom = -11.1429
+theme_override_styles/fill = SubResource("StyleBoxFlat_qiwdk")
+show_percentage = false
+
+[connection signal="area_entered" from="area_dano" to="." method="_on_area_dano_area_entered"]

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://hyd7bdq6ufdi"]
+
+[ext_resource type="Script" path="res://Scripts/arrow.gd" id="1_b2f60"]
+[ext_resource type="Texture2D" uid="uid://b8ao107lqvkgr" path="res://Assets/arrowCima.png" id="1_x0wjy"]
+
+[node name="ArrowCima" type="Node2D"]
+scale = Vector2(0.2, 0.2)
+script = ExtResource("1_b2f60")
+arrow_type = "up"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_x0wjy")

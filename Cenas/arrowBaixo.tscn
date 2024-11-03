@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://f3qyptr7v1xc"]
+
+[ext_resource type="Texture2D" uid="uid://dxmydungjw8ni" path="res://Assets/arrowBaixo.png" id="1_2j7vc"]
+[ext_resource type="Script" path="res://Scripts/arrow.gd" id="1_lrya6"]
+
+[node name="ArrowBaixo" type="Node2D"]
+scale = Vector2(0.2, 0.2)
+script = ExtResource("1_lrya6")
+arrow_type = "down"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_2j7vc")

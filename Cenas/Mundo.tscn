@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://7pgd0yejuvro"]
+
+[ext_resource type="PackedScene" uid="uid://cdpvlv7mx0n61" path="res://Cenas/Maps.tscn" id="1_r7ngj"]
+[ext_resource type="PackedScene" uid="uid://bdl2vur0faqmu" path="res://Cenas/Player.tscn" id="1_tu178"]
+[ext_resource type="PackedScene" uid="uid://3ivnfsvn1a5j" path="res://Cenas/npc.tscn" id="3_p4uvs"]
+
+[node name="Mundo" type="Node2D"]
+
+[node name="Map" parent="." instance=ExtResource("1_r7ngj")]
+
+[node name="Player" parent="." instance=ExtResource("1_tu178")]
+position = Vector2(392, 120)
+
+[node name="NPC" parent="." instance=ExtResource("3_p4uvs")]
+position = Vector2(417, -5)

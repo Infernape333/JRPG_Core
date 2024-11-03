@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://c60ewawgm0b3"]
+
+[ext_resource type="Script" path="res://Scripts/Conductor.gd" id="1_7d7ci"]
+[ext_resource type="AudioStream" uid="uid://bfc8iw7v8toqi" path="res://Musics/30 Null and Void.mp3" id="1_dkno8"]
+
+[node name="Conductor" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_dkno8")
+script = ExtResource("1_7d7ci")

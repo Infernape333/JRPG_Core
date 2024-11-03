@@ -1,0 +1,120 @@
+[gd_scene load_steps=12 format=3 uid="uid://cfjintadhmox5"]
+
+[ext_resource type="PackedScene" uid="uid://d1t06uveac1p" path="res://Cenas/jogador_campo.tscn" id="1_7pijh"]
+[ext_resource type="PackedScene" uid="uid://b12aekns87e1b" path="res://Cenas/jogador_ataque.tscn" id="2_8cw42"]
+[ext_resource type="PackedScene" uid="uid://rrf8xw5lvajn" path="res://Cenas/inimigo_campo.tscn" id="2_s1qhr"]
+[ext_resource type="PackedScene" uid="uid://dbpwkt27xwi6t" path="res://Cenas/inimigo_ataque.tscn" id="4_l7tnl"]
+[ext_resource type="Theme" path="res://Assets/tema_butaoha.tres" id="5_ftkir"]
+[ext_resource type="Script" path="res://Scripts/hitZone.gd" id="5_rocsi"]
+[ext_resource type="Texture2D" uid="uid://gs1e183lr28g" path="res://Assets/arrowEsquerda.png" id="6_7wwi1"]
+[ext_resource type="Script" path="res://Scripts/Control.gd" id="6_m7klb"]
+[ext_resource type="Texture2D" uid="uid://b051poikqwum2" path="res://Assets/arrowCima.png" id="7_fnq23"]
+[ext_resource type="Texture2D" uid="uid://ds6wml4hniid5" path="res://Assets/arrowDireita.png" id="8_l1e0k"]
+[ext_resource type="Texture2D" uid="uid://1hagmnk5pjsp" path="res://Assets/arrowBaixo.png" id="9_tun0h"]
+
+[node name="campo_de_batalha" type="Node2D"]
+
+[node name="inimigo_ataque" parent="." node_paths=PackedStringArray("sprite_campo", "target") instance=ExtResource("4_l7tnl")]
+position = Vector2(806, 348)
+sprite_campo = NodePath("../inimigo_campo")
+target = NodePath("../jogador_campo")
+
+[node name="inimigo_campo" parent="." instance=ExtResource("2_s1qhr")]
+visible = false
+position = Vector2(806, 355)
+
+[node name="jogador_ataque" parent="." node_paths=PackedStringArray("sprite_campo", "target", "battle_scene") instance=ExtResource("2_8cw42")]
+visible = false
+position = Vector2(613, 332)
+sprite_campo = NodePath("../jogador_campo")
+target = NodePath("../inimigo_campo")
+battle_scene = NodePath("..")
+
+[node name="jogador_campo" parent="." instance=ExtResource("1_7pijh")]
+position = Vector2(340, 341)
+
+[node name="hitZone" type="Node2D" parent="."]
+position = Vector2(348, 65)
+script = ExtResource("5_rocsi")
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="hitZone"]
+visible = false
+offset_left = -162.0
+offset_top = -19.0
+offset_right = 179.0
+offset_bottom = 27.0
+color = Color(0.275091, 0.275091, 0.275091, 1)
+
+[node name="esquerda" type="Sprite2D" parent="hitZone"]
+modulate = Color(1, 1, 1, 0.388235)
+texture_filter = 1
+position = Vector2(-94, 4)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("6_7wwi1")
+
+[node name="cima" type="Sprite2D" parent="hitZone"]
+modulate = Color(1, 1, 1, 0.388235)
+texture_filter = 1
+position = Vector2(-27, 4)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("7_fnq23")
+
+[node name="direita" type="Sprite2D" parent="hitZone"]
+modulate = Color(1, 1, 1, 0.388235)
+texture_filter = 1
+position = Vector2(40, 4)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("8_l1e0k")
+
+[node name="baixo" type="Sprite2D" parent="hitZone"]
+modulate = Color(1, 1, 1, 0.388235)
+texture_filter = 1
+position = Vector2(107, 4)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("9_tun0h")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 283.0
+offset_top = 426.0
+offset_right = 848.0
+offset_bottom = 555.0
+script = ExtResource("6_m7klb")
+metadata/_edit_group_ = true
+
+[node name="ataque" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.204
+anchor_top = 0.349
+anchor_right = 0.512
+anchor_bottom = 0.612
+offset_left = -0.26001
+offset_top = 4.979
+offset_right = -0.279999
+offset_bottom = 0.0519943
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_ftkir")
+text = "Atacar"
+
+[node name="ataque2" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.519
+anchor_top = 0.38
+anchor_right = 0.823
+anchor_bottom = 0.605
+offset_left = -0.235016
+offset_top = -0.0200043
+offset_right = 0.00500488
+offset_bottom = -0.0450058
+theme = ExtResource("5_ftkir")
+text = "Ataque 2"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 332)
+
+[connection signal="pressed" from="Control/ataque" to="jogador_ataque" method="_on_ataque_pressed"]

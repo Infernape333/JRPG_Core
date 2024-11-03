@@ -1,0 +1,97 @@
+[gd_scene load_steps=11 format=3 uid="uid://b12aekns87e1b"]
+
+[ext_resource type="Script" path="res://Scripts/jogador_ataque.gd" id="1_0qvsu"]
+[ext_resource type="Texture2D" uid="uid://drixa5rd6sgus" path="res://Assets/GB Clergy #1 Free Files/#14 L Brandon/Type 1/Idle/Idle_East_0.png" id="2_ib7lv"]
+[ext_resource type="Texture2D" uid="uid://ccgv3ul6rrtnv" path="res://Assets/GB Clergy #1 Free Files/#14 L Brandon/Type 1/Attack/Attack_South_0.png" id="3_e1ut5"]
+[ext_resource type="Texture2D" uid="uid://dgwxssaif6n2s" path="res://Assets/GB Clergy #1 Free Files/#14 L Brandon/Type 1/Attack/Attack_East_0.png" id="4_b3sit"]
+[ext_resource type="Texture2D" uid="uid://dypf48o0k2b4f" path="res://Assets/GB Clergy #1 Free Files/#14 L Brandon/Type 1/Idle/Idle_East_3.png" id="5_81ca0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l0bts"]
+size = Vector2(6.42857, 19)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ohjf"]
+size = Vector2(2.85714, 4.28572)
+
+[sub_resource type="Animation" id="Animation_2yi5v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Animated_jogador:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_ib7lv")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Collision_jogador_mao:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_bn58i"]
+resource_name = "ataque"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Animated_jogador:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.7, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_ib7lv"), ExtResource("3_e1ut5"), ExtResource("4_b3sit"), ExtResource("5_81ca0")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Collision_jogador_mao:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.7, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ou1da"]
+_data = {
+"RESET": SubResource("Animation_2yi5v"),
+"ataque": SubResource("Animation_bn58i")
+}
+
+[node name="jogador_ataque" type="CharacterBody2D"]
+scale = Vector2(3.5, 3.5)
+script = ExtResource("1_0qvsu")
+metadata/_edit_group_ = true
+
+[node name="Animated_jogador" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_ib7lv")
+
+[node name="Collision_jogador" type="CollisionShape2D" parent="."]
+position = Vector2(0.214286, 5)
+shape = SubResource("RectangleShape2D_l0bts")
+
+[node name="Collision_jogador_mao" type="CollisionShape2D" parent="."]
+position = Vector2(5.42857, 3)
+shape = SubResource("RectangleShape2D_4ohjf")
+disabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ou1da")
+}
