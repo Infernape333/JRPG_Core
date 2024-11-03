@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://d0a3w5vp0vmlm" path="res://Sprites_Player/Gingado.png" id="4_h808u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r37qd"]
-size = Vector2(6, 18.6667)
+size = Vector2(20, 42.5714)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4dmle"]
 atlas = ExtResource("2_hich1")
@@ -126,7 +126,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l0bts"]
-size = Vector2(6, 19)
+size = Vector2(20.5714, 43.1429)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qiwdk"]
 bg_color = Color(0.680431, 0.172632, 0.234211, 1)
@@ -143,7 +143,8 @@ script = ExtResource("1_d8yjh")
 [node name="area_dano" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="area_dano"]
-position = Vector2(0, 5)
+position = Vector2(1.63487e-06, 3.57143)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_r37qd")
 debug_color = Color(0.984314, 0, 0, 0.419608)
 
@@ -151,10 +152,11 @@ debug_color = Color(0.984314, 0, 0, 0.419608)
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_ddni5")
 animation = &"idle"
-frame_progress = 0.97303
+frame_progress = 0.544577
 
 [node name="Collision_jogador" type="CollisionShape2D" parent="."]
-position = Vector2(0, 5)
+position = Vector2(-0.285714, 3.28572)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_l0bts")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]

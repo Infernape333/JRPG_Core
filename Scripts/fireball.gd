@@ -12,8 +12,10 @@ func _ready():
 func _physics_process(delta):
 	position.x += speed * delta * -1
 
-func _on_body_entered(body):
+
+func _on_area_2d_body_entered(body):
 	if body.get_name() == "jogador_campo":
+		print("heliogay")
 		$AnimatedSprite2D.play("destroy")
 		speed = 0
 		await get_tree().create_timer(1.2).timeout

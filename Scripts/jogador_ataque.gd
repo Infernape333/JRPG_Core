@@ -39,8 +39,8 @@ func realizar_ataque():
 	if TurnManager.current_turn == TurnManager.Turn.PLAYER:
 		self.visible = true
 		sprite_campo.visible = false
-		$AnimationPlayer.play("ataque")
-		await $AnimationPlayer.animation_finished
+		$AnimatedSprite2D.play("Ponteira")
+		await $AnimatedSprite2D.animation_finished
 		sprite_campo.attack(target)
 		sprite_campo.visible = true
 		self.visible = false

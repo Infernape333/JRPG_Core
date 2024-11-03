@@ -62,4 +62,4 @@ const BolaDeFogo = preload("res://Cenas/fireball.tscn")
 func fire_ball():
 	var bola_de_fogo_instance = BolaDeFogo.instantiate()
 	get_parent().add_child(bola_de_fogo_instance)
-	bola_de_fogo_instance.position = Vector2(725, 291)
+	bola_de_fogo_instance.position = Vector2(714, 347)

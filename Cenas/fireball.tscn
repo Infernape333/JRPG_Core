@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://bfi7ktlpk7qgn"]
 
+[ext_resource type="Script" path="res://Scripts/fireball.gd" id="1_1rnuu"]
 [ext_resource type="Texture2D" uid="uid://bwprh45xuxfcf" path="res://Sprites_Player/fire-ball.png" id="1_7n0c8"]
-[ext_resource type="Script" path="res://fireball.gd" id="1_q88be"]
 [ext_resource type="Texture2D" uid="uid://ovqovw0l0os8" path="res://Sprites_Player/Explosion.png" id="2_v3l38"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qxsk8"]
@@ -92,13 +92,12 @@ size = Vector2(18, 8)
 
 [node name="Fireball" type="Node2D"]
 scale = Vector2(3, 3)
-script = ExtResource("1_q88be")
+script = ExtResource("1_1rnuu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_2yinm")
-animation = &"destroy"
-frame_progress = 0.81944
+animation = &"fireball"
 flip_h = true
 
 [node name="Area2D" type="Area2D" parent="."]
