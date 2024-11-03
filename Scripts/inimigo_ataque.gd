@@ -8,7 +8,7 @@ var opcoes_de_ataque_aleatorio : Array = []
 var is_attacking = false
 
 func gerar_ataques_aleatorios():
-	var opcoes_de_ataque = ["fogo", "nulo"]
+	var opcoes_de_ataque = ["fogo"]
 	var ataques_aleatorios = []
 	var numero_de_ataques = 8
 	randomize()
@@ -42,7 +42,7 @@ func ataque(ataque):
 		$AnimationPlayer.play("ataque")
 		await $AnimationPlayer.animation_finished
 		print(self.visible)
-		#fire_ball()
+		fire_ball()
 		
 	sprite_campo.visible = true
 	self.visible = false
@@ -58,8 +58,8 @@ func ataque(ataque):
 
 
 
-#const BolaDeFogo = preload("res://Scenes/bola_de_fogo.tscn")
-#func fire_ball():
-	#var bola_de_fogo_instance = BolaDeFogo.instantiate()
-	#get_parent().add_child(bola_de_fogo_instance)
-	#bola_de_fogo_instance.position = Vector2(725, 291)
+const BolaDeFogo = preload("res://Cenas/fireball.tscn")
+func fire_ball():
+	var bola_de_fogo_instance = BolaDeFogo.instantiate()
+	get_parent().add_child(bola_de_fogo_instance)
+	bola_de_fogo_instance.position = Vector2(725, 291)
