@@ -26,7 +26,6 @@ func _update_animation():
 			direction = "east"
 		elif velocity.x < 0:
 			$Anime.play("Andando_Esquerda")
-			$Anime.flip_h = true
 			direction = "west"
 		elif velocity.y > 0:
 			$Anime.play("Andando_Baixo")

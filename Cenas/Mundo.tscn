@@ -7,9 +7,10 @@
 [node name="Mundo" type="Node2D"]
 
 [node name="Map" parent="." instance=ExtResource("1_r7ngj")]
+position = Vector2(123, -174)
 
 [node name="Player" parent="." instance=ExtResource("1_tu178")]
-position = Vector2(392, 120)
+position = Vector2(388, 437)
 
 [node name="NPC" parent="." instance=ExtResource("3_p4uvs")]
-position = Vector2(417, -5)
+position = Vector2(633, 202)
