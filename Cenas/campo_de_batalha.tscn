@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b12aekns87e1b" path="res://Cenas/jogador_ataque.tscn" id="2_8cw42"]
 [ext_resource type="PackedScene" uid="uid://rrf8xw5lvajn" path="res://Cenas/inimigo_campo.tscn" id="2_s1qhr"]
 [ext_resource type="PackedScene" uid="uid://dbpwkt27xwi6t" path="res://Cenas/inimigo_ataque.tscn" id="4_l7tnl"]
-[ext_resource type="Theme" path="res://Assets/tema_butaoha.tres" id="5_ftkir"]
+[ext_resource type="Theme" uid="uid://b58wd682c5ioc" path="res://Assets/tema_butaoha.tres" id="5_ftkir"]
 [ext_resource type="Script" path="res://Scripts/hitZone.gd" id="5_rocsi"]
 [ext_resource type="Texture2D" uid="uid://gs1e183lr28g" path="res://Assets/arrowEsquerda.png" id="6_7wwi1"]
 [ext_resource type="Script" path="res://Scripts/Control.gd" id="6_m7klb"]
@@ -15,12 +15,12 @@
 [node name="campo_de_batalha" type="Node2D"]
 
 [node name="inimigo_ataque" parent="." node_paths=PackedStringArray("sprite_campo", "target") instance=ExtResource("4_l7tnl")]
+visible = false
 position = Vector2(806, 348)
 sprite_campo = NodePath("../inimigo_campo")
 target = NodePath("../jogador_campo")
 
 [node name="inimigo_campo" parent="." instance=ExtResource("2_s1qhr")]
-visible = false
 position = Vector2(806, 355)
 
 [node name="jogador_ataque" parent="." node_paths=PackedStringArray("sprite_campo", "target", "battle_scene") instance=ExtResource("2_8cw42")]
@@ -113,8 +113,5 @@ offset_right = 0.00500488
 offset_bottom = -0.0450058
 theme = ExtResource("5_ftkir")
 text = "Ataque 2"
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(576, 332)
 
 [connection signal="pressed" from="Control/ataque" to="jogador_ataque" method="_on_ataque_pressed"]
