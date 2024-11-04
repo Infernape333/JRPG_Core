@@ -7,12 +7,6 @@ extends Node2D
 @export var spawn_interval = .8 
 @export var max_arrows = 8  # Número máximo de setas por sequência
 
-# AudioStreamPlayer para a música
-@export var audio_player: AudioStreamPlayer  
-@export var music_file: = "res://Musics/18 Accursed One.mp3"
-var beat_times = [1.0, 2.0, 3.0, 4.0, 5.0, 6.5, 8.0, 9.5]  # Tempos de beat para cada seta (em segundos)
-var current_beat_index = 0
-
 var arrow_count = 0  # Contador de setas geradas
 var spawn_timer = 0.0
 
@@ -25,20 +19,9 @@ var arrow_types = [
 "res://Cenas/arrowDireita.tscn"]
 
 func _ready():
-	 # Iniciar a música
-	audio_player.stream = music_file
-	audio_player.play()
+	pass
 
 func _process(delta):
-	# Tempo atual da música
-	var music_time = audio_player.get_playback_position()
-	
-	 # Gera setas no momento certo baseado nos tempos mapeados
-	if current_beat_index < beat_times.size() and music_time >= beat_times[current_beat_index]:
-		if arrow_count < max_arrows:
-			spawn_arrow()  # Gera uma nova seta
-			current_beat_index += 1  # Passa para o próximo beat
-	
 	# Contagem para spawnar novas setas
 	if arrow_count < max_arrows:
 		spawn_timer -= delta
@@ -62,10 +45,7 @@ func spawn_arrow():
 		arrow_instance.position = Vector2(spawn_x_positions[2], spawn_y)
 	else:
 		arrow_instance.position = Vector2(spawn_x_positions[3], spawn_y)
-	
-	#var random_x = spawn_x_positions[randi() % spawn_x_positions.size()]
-	#arrow_instance.position = Vector2(random_x, spawn_y)
-	
+		
 	# Conecta o sinal de acerto da seta para incrementar a contagem usando Callable
 	arrow_instance.connect("seta_acertada", Callable(self, "_on_seta_acertada"))
 	arrow_count += 1
@@ -78,4 +58,3 @@ func reset_sequence():
 	arrow_count = 0
 	spawn_timer = 0
 	acertos = 0
-	#current_beat_index = 0
