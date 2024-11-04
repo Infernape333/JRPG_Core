@@ -161,8 +161,7 @@ sprite_frames = SubResource("SpriteFrames_n8ymc")
 animation = &"Parado_Cima"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(24, -14)
+position = Vector2(21, -8)
 shape = SubResource("CapsuleShape2D_sgebl")
 
 [node name="Camera2D" type="Camera2D" parent="."]
