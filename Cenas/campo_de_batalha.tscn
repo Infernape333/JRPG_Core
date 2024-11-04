@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b12aekns87e1b" path="res://Cenas/jogador_ataque.tscn" id="2_8cw42"]
 [ext_resource type="PackedScene" uid="uid://rrf8xw5lvajn" path="res://Cenas/inimigo_campo.tscn" id="2_s1qhr"]
 [ext_resource type="PackedScene" uid="uid://dbpwkt27xwi6t" path="res://Cenas/inimigo_ataque.tscn" id="4_l7tnl"]
-[ext_resource type="Theme" path="res://Assets/tema_butaoha.tres" id="5_ftkir"]
+[ext_resource type="Theme" uid="uid://b58wd682c5ioc" path="res://Assets/tema_butaoha.tres" id="5_ftkir"]
 [ext_resource type="Script" path="res://Scripts/hitZone.gd" id="5_rocsi"]
 [ext_resource type="Texture2D" uid="uid://gs1e183lr28g" path="res://Assets/arrowEsquerda.png" id="6_7wwi1"]
 [ext_resource type="Script" path="res://Scripts/Control.gd" id="6_m7klb"]
@@ -86,35 +86,35 @@ offset_bottom = 555.0
 script = ExtResource("6_m7klb")
 metadata/_edit_group_ = true
 
-[node name="ataque" type="Button" parent="Control"]
+[node name="ponteira" type="Button" parent="Control"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.204
 anchor_top = 0.349
 anchor_right = 0.512
 anchor_bottom = 0.612
-offset_left = -0.26001
+offset_left = -32.26
 offset_top = 4.979
-offset_right = -0.279999
+offset_right = -32.28
 offset_bottom = 0.0519943
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("5_ftkir")
-text = "Atacar"
+text = "Ponteira"
 
-[node name="ataque2" type="Button" parent="Control"]
+[node name="raboDeArraia" type="Button" parent="Control"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.519
 anchor_top = 0.38
 anchor_right = 0.823
 anchor_bottom = 0.605
-offset_left = -0.235016
+offset_left = 8.76498
 offset_top = -0.0200043
-offset_right = 0.00500488
+offset_right = 69.005
 offset_bottom = -0.0450058
 theme = ExtResource("5_ftkir")
-text = "Ataque 2"
+text = "Rabo de Arraia"
 
-[connection signal="pressed" from="Control/ataque" to="jogador_ataque" method="_on_ataque_pressed"]
-[connection signal="pressed" from="Control/ataque2" to="jogador_ataque" method="_on_ataque_2_pressed"]
+[connection signal="pressed" from="Control/ponteira" to="jogador_ataque" method="_on_ponteira_pressed"]
+[connection signal="pressed" from="Control/raboDeArraia" to="jogador_ataque" method="_on_rabo_de_arraia_pressed"]
