@@ -3,12 +3,17 @@ extends Node2D
 
 @export var spawn_y = 250
 @export var spawn_x_positions = [254, 321, 388, 455]
-@export var arrow_speed = 100
-@export var spawn_interval = .8 
+@export var base_arrow_speed = 100  # Base speed
+@export var bpm = 65  # BPM da música
 @export var max_arrows = 8  # Número máximo de setas por sequência
+@export var target_y_position = 50  # Posição onde a seta deve ser clicada
+@export var music_player: AudioStreamPlayer  # Referência ao player de música
+
 
 var arrow_count = 0  # Contador de setas geradas
+var spawn_interval = 60.0 / bpm  # Intervalo entre as setas, baseado no BPM
 var spawn_timer = 0.0
+var arrow_speed = base_arrow_speed
 
 var acertos = 0  # Contagem de acertos do jogador
 
@@ -19,10 +24,9 @@ var arrow_types = [
 "res://Cenas/arrowDireita.tscn"]
 
 func _ready():
-	pass
+	$AudioStreamPlayer.play()
 
 func _process(delta):
-	# Contagem para spawnar novas setas
 	if arrow_count < max_arrows:
 		spawn_timer -= delta
 		if spawn_timer <= 0:
@@ -45,7 +49,10 @@ func spawn_arrow():
 		arrow_instance.position = Vector2(spawn_x_positions[2], spawn_y)
 	else:
 		arrow_instance.position = Vector2(spawn_x_positions[3], spawn_y)
-		
+	
+	var distance_to_travel = spawn_y - target_y_position
+	var travel_time = spawn_interval
+	arrow_instance.speed = distance_to_travel / travel_time
 	# Conecta o sinal de acerto da seta para incrementar a contagem usando Callable
 	arrow_instance.connect("seta_acertada", Callable(self, "_on_seta_acertada"))
 	arrow_count += 1
