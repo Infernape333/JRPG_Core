@@ -59,6 +59,7 @@ func _on_turn_changed(new_turn):
 
 
 func _on_area_2d_body_entered(body):
+	await get_tree().create_timer(.5).timeout
 	$Animated_inimigo.play("dano")
 	await $Animated_inimigo.animation_finished
 	$Animated_inimigo.play("idle")

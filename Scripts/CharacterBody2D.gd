@@ -4,6 +4,7 @@ var SPEED = 50.0
 var direction = "south"
 var original_speed = SPEED
 var dialogue_active = false  
+@onready var animation = $Anime
 
 func _physics_process(delta):
 	if not dialogue_active: 
@@ -22,10 +23,12 @@ func _move():
 func _update_animation():
 	if velocity.length() > 0:
 		if velocity.x > 0:
-			$Anime.play("Andando_Direita")
+			$Anime.play("Andando")
+			$Anime.flip_h = false
 			direction = "east"
 		elif velocity.x < 0:
-			$Anime.play("Andando_Esquerda")
+			$Anime.play("Andando")
+			$Anime.flip_h = true
 			direction = "west"
 		elif velocity.y > 0:
 			$Anime.play("Andando_Baixo")
@@ -35,9 +38,11 @@ func _update_animation():
 			direction = "north"
 	else:
 		if direction == "east":
-			$Anime.play("Parado_Direita")
+			$Anime.play("Parado")
+			$Anime.flip_h = false
 		elif direction == "west":
-			$Anime.play("Parado_Esquerda")
+			$Anime.play("Parado")
+			$Anime.flip_h = true
 		elif direction == "south":
 			$Anime.play("Parado_Baixo")
 		else:

@@ -18,6 +18,10 @@ func _on_ataque_pressed():
 	if TurnManager.current_turn == TurnManager.Turn.PLAYER:
 		iniciar_sequencia()
 
+func _on_ataque_2_pressed():
+	if TurnManager.current_turn == TurnManager.Turn.PLAYER:
+		iniciar_sequencia_2()
+
 func iniciar_sequencia():
 	var setas_scene = load("res://Cenas/fila_de_setas.tscn").instantiate()
 	battle_scene.add_child(setas_scene)
@@ -27,6 +31,20 @@ func iniciar_sequencia():
 	
 	if jogador_acertou_sequencia(setas_scene.acertos):
 		await realizar_ataque()
+	else:
+		TurnManager.switch_turn()
+	
+	setas_scene.queue_free()
+	
+func iniciar_sequencia_2():
+	var setas_scene = load("res://Cenas/fila_de_setas.tscn").instantiate()
+	battle_scene.add_child(setas_scene)
+	setas_scene.reset_sequence()
+	
+	await get_tree().create_timer(8).timeout
+	
+	if jogador_acertou_sequencia(setas_scene.acertos):
+		await realizar_ataque_2()
 	else:
 		TurnManager.switch_turn()
 	
@@ -45,3 +63,16 @@ func realizar_ataque():
 		sprite_campo.visible = true
 		self.visible = false
 		TurnManager.switch_turn()
+
+func realizar_ataque_2():
+	if TurnManager.current_turn == TurnManager.Turn.PLAYER:
+		self.visible = true
+		sprite_campo.visible = false
+		$AnimatedSprite2D.play("RaboDeArraia")
+		await $AnimatedSprite2D.animation_finished
+		sprite_campo.attack(target)
+		sprite_campo.visible = true
+		self.visible = false
+		TurnManager.switch_turn()
+
+
