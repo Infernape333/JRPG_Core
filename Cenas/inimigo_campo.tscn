@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ciknv5fah0bhg" path="res://Assets/Fire Worm/Sprites/Worm/Idle.png" id="18_v135m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o6yhr"]
-size = Vector2(25.6191, 20)
+size = Vector2(29.3334, 20)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_47udr"]
 atlas = ExtResource("2_c1cw1")
@@ -183,7 +183,8 @@ script = ExtResource("1_h7pt7")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-9.47618, 3.33333)
+position = Vector2(-11.3333, 3.33333)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_o6yhr")
 debug_color = Color(10, 0, 0, 0.42)
 

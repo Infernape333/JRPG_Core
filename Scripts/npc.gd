@@ -12,9 +12,6 @@ func _physics_process(delta):
 
 func _on_area_2d_body_entered(body):
 	$Butao.show()
-	print("aaaa")
 
-
-func _on_area_2d_area_exited(area):
+func _on_area_2d_body_exited(body):
 	$Butao.hide()
-	print("aaaaa")

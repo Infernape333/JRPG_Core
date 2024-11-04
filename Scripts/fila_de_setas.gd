@@ -4,7 +4,7 @@ extends Node2D
 @export var spawn_y = 250
 @export var spawn_x_positions = [254, 321, 388, 455]
 @export var base_arrow_speed = 100  # Base speed
-@export var bpm = 120  # BPM da música
+@export var bpm = 65  # BPM da música
 @export var max_arrows = 8  # Número máximo de setas por sequência
 @export var target_y_position = 50  # Posição onde a seta deve ser clicada
 @export var music_player: AudioStreamPlayer  # Referência ao player de música
