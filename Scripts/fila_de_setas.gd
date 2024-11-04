@@ -24,7 +24,7 @@ var arrow_types = [
 "res://Cenas/arrowDireita.tscn"]
 
 func _ready():
-	pass
+	$AudioStreamPlayer.play()
 
 func _process(delta):
 	if arrow_count < max_arrows:

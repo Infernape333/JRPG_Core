@@ -1,8 +1,8 @@
 extends Control
 
 
-@onready var btn1 = $ataque
-@onready var btn2 = $ataque2
+@onready var btn1 = $ponteira
+@onready var btn2 = $raboDeArraia
 
 func _ready():
 	pass

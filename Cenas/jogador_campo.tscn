@@ -1,20 +1,28 @@
 [gd_scene load_steps=23 format=3 uid="uid://d1t06uveac1p"]
 
 [ext_resource type="Script" path="res://Scripts/jogador_campo.gd" id="1_d8yjh"]
+<<<<<<< HEAD
 [ext_resource type="Texture2D" uid="uid://be886c5wjpscc" path="res://Assets/GB Clergy #1 Free Files/#14 L Brandon/Type 1/Idle/Idle_East_2.png" id="2_hich1"]
 [ext_resource type="Texture2D" uid="uid://ccgv3ul6rrtnv" path="res://Assets/GB Clergy #1 Free Files/#14 L Brandon/Type 1/Attack/Attack_South_0.png" id="3_p7bha"]
+=======
+[ext_resource type="Texture2D" uid="uid://cf18qtvw20irp" path="res://Sprites_Player/Damage-Sheet.png" id="2_scl4k"]
+>>>>>>> Cauã
 [ext_resource type="Texture2D" path="res://Sprites_Player/Gingado.png" id="4_h808u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r37qd"]
 size = Vector2(20, 42.5714)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4dmle"]
-atlas = ExtResource("2_hich1")
-region = Rect2(0, 0, 24, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ksdlc"]
+atlas = ExtResource("2_scl4k")
+region = Rect2(0, 64, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ood5h"]
-atlas = ExtResource("3_p7bha")
-region = Rect2(0, 0, 24, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_37aly"]
+atlas = ExtResource("2_scl4k")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2kdku"]
+atlas = ExtResource("2_scl4k")
+region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mke1c"]
 atlas = ExtResource("4_h808u")
@@ -68,16 +76,16 @@ region = Rect2(192, 128, 64, 64)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4dmle")
+"texture": SubResource("AtlasTexture_ksdlc")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ood5h")
+"texture": SubResource("AtlasTexture_37aly")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ood5h")
+"texture": SubResource("AtlasTexture_2kdku")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ood5h")
+"texture": SubResource("AtlasTexture_ksdlc")
 }],
 "loop": false,
 "name": &"dano",
@@ -150,8 +158,7 @@ debug_color = Color(0.984314, 0, 0, 0.419608)
 [node name="Animated_jogador" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_ddni5")
-animation = &"idle"
-frame_progress = 0.544577
+animation = &"dano"
 
 [node name="Collision_jogador" type="CollisionShape2D" parent="."]
 position = Vector2(-0.285714, 3.28572)
@@ -159,9 +166,9 @@ shape = SubResource("RectangleShape2D_l0bts")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 offset_left = -18.5714
-offset_top = -31.4286
+offset_top = -33.7143
 offset_right = 20.4286
-offset_bottom = -27.4286
+offset_bottom = -29.7143
 theme_override_styles/fill = SubResource("StyleBoxFlat_qiwdk")
 show_percentage = false
 

@@ -198,9 +198,9 @@ position = Vector2(-5.83333, 3.14286)
 shape = SubResource("RectangleShape2D_l0bts")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
-offset_left = -26.2857
+offset_left = -19.4286
 offset_top = -33.1429
-offset_right = 12.7143
+offset_right = 19.5714
 offset_bottom = -29.1429
 theme_override_styles/fill = SubResource("StyleBoxFlat_wikui")
 show_percentage = false
