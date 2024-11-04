@@ -23,7 +23,7 @@ func iniciar_sequencia():
 	battle_scene.add_child(setas_scene)
 	setas_scene.reset_sequence()
 	
-	await get_tree().create_timer(8).timeout
+	await get_tree().create_timer(30).timeout
 	
 	if jogador_acertou_sequencia(setas_scene.acertos):
 		await realizar_ataque()

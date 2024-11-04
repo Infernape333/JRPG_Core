@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://b12aekns87e1b"]
 
 [ext_resource type="Script" path="res://Scripts/jogador_ataque.gd" id="1_0qvsu"]
-[ext_resource type="Texture2D" uid="uid://bb5vwyk7k5f5e" path="res://Sprites_Player/Ponteira-Sheet.png" id="2_ii1dt"]
+[ext_resource type="Texture2D" path="res://Sprites_Player/Ponteira-Sheet.png" id="2_ii1dt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qwhtg"]
 atlas = ExtResource("2_ii1dt")
@@ -127,7 +127,6 @@ frame_progress = 1.0
 
 [node name="Collision_jogador" type="CollisionShape2D" parent="."]
 position = Vector2(0.428571, 7)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_l0bts")
 
 [node name="Collision_jogador_mao" type="CollisionShape2D" parent="."]
