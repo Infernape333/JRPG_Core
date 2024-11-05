@@ -1,8 +1,8 @@
-[gd_scene load_steps=23 format=3 uid="uid://d1t06uveac1p"]
+[gd_scene load_steps=24 format=3 uid="uid://d1t06uveac1p"]
 
 [ext_resource type="Script" path="res://Scripts/jogador_campo.gd" id="1_d8yjh"]
 [ext_resource type="Texture2D" uid="uid://cf18qtvw20irp" path="res://Sprites_Player/Damage-Sheet.png" id="2_scl4k"]
-[ext_resource type="Texture2D" path="res://Sprites_Player/Gingado.png" id="4_h808u"]
+[ext_resource type="Texture2D" uid="uid://d0a3w5vp0vmlm" path="res://Sprites_Player/Gingado.png" id="4_h808u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r37qd"]
 size = Vector2(20, 42.5714)
@@ -138,6 +138,13 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iq8d5"]
+bg_color = Color(0, 0.713726, 0.913725, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
 [node name="jogador_campo" type="CharacterBody2D"]
 self_modulate = Color(30, 100, 1, 1)
 scale = Vector2(3.5, 3.5)
@@ -159,12 +166,23 @@ animation = &"dano"
 position = Vector2(-0.285714, 3.28572)
 shape = SubResource("RectangleShape2D_l0bts")
 
-[node name="ProgressBar" type="ProgressBar" parent="."]
-offset_left = -18.5714
-offset_top = -33.7143
-offset_right = 20.4286
-offset_bottom = -29.7143
+[node name="Healthbar" type="ProgressBar" parent="."]
+texture_filter = 1
+offset_left = -17.7143
+offset_top = -36.5714
+offset_right = 21.2857
+offset_bottom = -32.5714
 theme_override_styles/fill = SubResource("StyleBoxFlat_qiwdk")
+show_percentage = false
+
+[node name="Staminabar" type="ProgressBar" parent="."]
+texture_filter = 1
+offset_left = -12.5714
+offset_top = -32.0
+offset_right = 17.4286
+offset_bottom = -28.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_iq8d5")
+value = 50.0
 show_percentage = false
 
 [connection signal="area_entered" from="area_dano" to="." method="_on_area_dano_area_entered"]

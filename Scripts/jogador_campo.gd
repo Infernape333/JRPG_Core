@@ -3,21 +3,33 @@ extends CharacterBody2D
 
 @export var player_hp: int = 100
 @export var attack_power: int = 20
+@export var player_stamina: int = 100
+@export var max_stamina: int = 100  # Capacidade máxima de Stamina
 
-@onready var barra_vida = $ProgressBar
+@onready var barra_vida = $Healthbar
+@onready var barra_stamina = $Staminabar
 var current_health: int = player_hp
+var current_stamina: int = max_stamina  # Inicializa a Stamina atual
 
 func _ready():
 	$Animated_jogador.play("idle")
 	# Define a vida inicial na barra
 	barra_vida.max_value = player_hp
 	barra_vida.value = current_health
+	barra_stamina.max_value = max_stamina
+	barra_stamina.value = current_stamina
 	TurnManager.connect("turn_changed", Callable(self, "_on_turn_changed"))
 
-func attack(target):
+func attack(target, stamina_cost: int):
 	if TurnManager.current_turn == TurnManager.Turn.PLAYER:
-		print("\nJogador atacou!")
-		target.take_damage(attack_power)
+		if current_stamina >= stamina_cost:
+			print("\nJogador atacou!")
+			target.take_damage(attack_power)
+			current_stamina -= stamina_cost
+			update_stamina_bar()
+		else:
+			print("Stamina insuficiente")
+			TurnManager.Turn.ENEMY
 
 func take_damage(damage: int):
 	current_health -= damage
@@ -53,7 +65,13 @@ func _process(delta):
 func _on_turn_changed(new_turn):
 	if new_turn == TurnManager.Turn.PLAYER:
 		print("Turno do jogador!")
+		recover_stamina()
 
+func recover_stamina():
+	current_stamina += max_stamina * 0.1
+	if current_stamina > max_stamina:
+		current_stamina = max_stamina
+	update_stamina_bar()
 #indentificar dano para iniciar animação
 func _on_area_dano_area_entered(area):
 	$Animated_jogador.stop()
@@ -64,3 +82,5 @@ func _on_area_dano_area_entered(area):
 func update_health_bar():
 	barra_vida.value = current_health
 
+func update_stamina_bar():
+	barra_stamina.value = current_stamina

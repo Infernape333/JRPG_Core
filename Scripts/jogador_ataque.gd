@@ -5,6 +5,12 @@ extends CharacterBody2D
 
 @export var battle_scene: Node2D  # Referência à cena de campo de batalha
 
+
+var attack_stamina_cost = {
+	"ponteira": 20,
+	"raboDeArraia": 30
+}
+
 func _ready():
 	pass
 
@@ -51,7 +57,7 @@ func realizar_ataque(ataque):
 			$AnimatedSprite2D.play("RaboDeArraia")
 			await $AnimatedSprite2D.animation_finished
 			
-		sprite_campo.attack(target)
+		sprite_campo.attack(target, attack_stamina_cost[ataque])
 		sprite_campo.visible = true
 		self.visible = false
 		TurnManager.switch_turn()

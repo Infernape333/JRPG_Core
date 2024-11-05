@@ -1,6 +1,5 @@
 extends Control
 
-
 @onready var btn1 = $ponteira
 @onready var btn2 = $raboDeArraia
 

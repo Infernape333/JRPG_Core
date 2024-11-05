@@ -1,7 +1,7 @@
 [gd_scene load_steps=25 format=3 uid="uid://b12aekns87e1b"]
 
 [ext_resource type="Script" path="res://Scripts/jogador_ataque.gd" id="1_0qvsu"]
-[ext_resource type="Texture2D" path="res://Sprites_Player/Ponteira-Sheet.png" id="2_ii1dt"]
+[ext_resource type="Texture2D" uid="uid://bb5vwyk7k5f5e" path="res://Sprites_Player/Ponteira-Sheet.png" id="2_ii1dt"]
 [ext_resource type="Texture2D" uid="uid://bjl7scxbenesu" path="res://Sprites_Player/rabodearraia-Sheet.png" id="3_epkq1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qwhtg"]
