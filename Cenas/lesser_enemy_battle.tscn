@@ -1,0 +1,99 @@
+[gd_scene load_steps=14 format=3 uid="uid://b82vyyq67uog"]
+
+[ext_resource type="Texture2D" uid="uid://d04qletrahfet" path="res://Assets/Fire Worm/Sprites/Worm/Idle (1).png" id="1_s4vox"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i2kt6"]
+atlas = ExtResource("1_s4vox")
+region = Rect2(0, 0, 90, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8sjm3"]
+atlas = ExtResource("1_s4vox")
+region = Rect2(90, 0, 90, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_so86n"]
+atlas = ExtResource("1_s4vox")
+region = Rect2(180, 0, 90, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j458o"]
+atlas = ExtResource("1_s4vox")
+region = Rect2(270, 0, 90, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0rvf"]
+atlas = ExtResource("1_s4vox")
+region = Rect2(360, 0, 90, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7shp1"]
+atlas = ExtResource("1_s4vox")
+region = Rect2(450, 0, 90, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vbh6n"]
+atlas = ExtResource("1_s4vox")
+region = Rect2(540, 0, 90, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjbi1"]
+atlas = ExtResource("1_s4vox")
+region = Rect2(630, 0, 90, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w7vor"]
+atlas = ExtResource("1_s4vox")
+region = Rect2(720, 0, 90, 90)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w8j8u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i2kt6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8sjm3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_so86n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j458o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p0rvf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7shp1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vbh6n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fjbi1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w7vor")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b3lm3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2cg5e"]
+
+[node name="LesserEnemyBattle" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_w8j8u")
+animation = &"idle"
+frame = 6
+frame_progress = 0.535969
+flip_h = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_b3lm3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-12, 3)
+shape = SubResource("RectangleShape2D_2cg5e")
+debug_color = Color(0.877008, 0, 0.0337682, 0.42)

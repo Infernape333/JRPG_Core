@@ -23,3 +23,6 @@ func sequencia_ativa() -> bool:
 	var battle_scene = get_parent()
 	var setas_scene = battle_scene.get_node_or_null("fila_de_setas")
 	return setas_scene != null
+
+
+

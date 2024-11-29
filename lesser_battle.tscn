@@ -1,3 +1,12 @@
-[gd_scene format=3 uid="uid://chd4yggaawuxi"]
+[gd_scene load_steps=2 format=3 uid="uid://chd4yggaawuxi"]
+
+[ext_resource type="Script" path="res://lesser_battle.gd" id="1_cfj0q"]
 
 [node name="LesserBattle" type="Node2D"]
+script = ExtResource("1_cfj0q")
+
+[node name="PlayerPosition" type="Marker2D" parent="."]
+position = Vector2(340, 367)
+
+[node name="EnemyPosition" type="Marker2D" parent="."]
+position = Vector2(806, 355)

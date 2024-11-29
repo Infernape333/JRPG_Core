@@ -88,11 +88,12 @@ script = ExtResource("1_s1ypu")
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_tppg0")
 animation = &"Walking"
-frame_progress = 0.521762
+frame_progress = 0.0616625
 
 [node name="Timer" type="Timer" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, 5)
 shape = SubResource("CircleShape2D_aa8d6")
 
@@ -101,6 +102,7 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
 position = Vector2(0, 5)
 shape = SubResource("CircleShape2D_ibyhr")
 

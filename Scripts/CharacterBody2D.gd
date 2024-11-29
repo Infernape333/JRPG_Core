@@ -1,10 +1,22 @@
 extends CharacterBody2D
 
+@export var player_hp: int = 100
+@export var attack_power: int = 20
+@export var player_stamina: int = 100
+@export var max_stamina: int = 100  
+
 var SPEED = 50.0
 var direction = "south"
 var original_speed = SPEED
 var dialogue_active = false  
 @onready var animation = $Anime
+
+var player_data = {
+	"hp": 100,
+	"damage": 20,
+	"stamina": 100,
+	"max_stamina": 100
+}
 
 func _physics_process(delta):
 	if not dialogue_active: 

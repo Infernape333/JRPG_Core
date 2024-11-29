@@ -1,8 +1,10 @@
-[gd_scene load_steps=25 format=3 uid="uid://b12aekns87e1b"]
+[gd_scene load_steps=27 format=3 uid="uid://b12aekns87e1b"]
 
 [ext_resource type="Script" path="res://Scripts/jogador_ataque.gd" id="1_0qvsu"]
 [ext_resource type="Texture2D" uid="uid://bb5vwyk7k5f5e" path="res://Sprites_Player/Ponteira-Sheet.png" id="2_ii1dt"]
 [ext_resource type="Texture2D" uid="uid://bjl7scxbenesu" path="res://Sprites_Player/rabodearraia-Sheet.png" id="3_epkq1"]
+[ext_resource type="Script" path="res://Scripts/Control.gd" id="4_2edqb"]
+[ext_resource type="Theme" path="res://Assets/tema_butaoha.tres" id="5_tl2hf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qwhtg"]
 atlas = ExtResource("2_ii1dt")
@@ -193,3 +195,48 @@ disabled = true
 libraries = {
 "": SubResource("AnimationLibrary_ou1da")
 }
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 283.0
+offset_top = 426.0
+offset_right = 848.0
+offset_bottom = 555.0
+script = ExtResource("4_2edqb")
+metadata/_edit_group_ = true
+
+[node name="ponteira" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.204
+anchor_top = 0.349
+anchor_right = 0.512
+anchor_bottom = 0.612
+offset_left = -32.26
+offset_top = 4.979
+offset_right = -32.28
+offset_bottom = 0.0519943
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_tl2hf")
+text = "Ponteira"
+
+[node name="raboDeArraia" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.519
+anchor_top = 0.38
+anchor_right = 0.823
+anchor_bottom = 0.605
+offset_left = 8.76498
+offset_top = -0.0200043
+offset_right = 69.005
+offset_bottom = -0.0450058
+theme = ExtResource("5_tl2hf")
+text = "Rabo de Arraia"
+
+[connection signal="pressed" from="CanvasLayer/Control/ponteira" to="." method="_on_ponteira_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/raboDeArraia" to="." method="_on_rabo_de_arraia_pressed"]

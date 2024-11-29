@@ -4,7 +4,7 @@ extends CharacterBody2D
 @export var player_hp: int = 100
 @export var attack_power: int = 20
 @export var player_stamina: int = 100
-@export var max_stamina: int = 100  # Capacidade máxima de Stamina
+@export var max_stamina: int = 100  
 
 @onready var barra_vida = $Healthbar
 @onready var barra_stamina = $Staminabar
