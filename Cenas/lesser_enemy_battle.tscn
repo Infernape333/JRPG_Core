@@ -1,6 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://b82vyyq67uog"]
+[gd_scene load_steps=15 format=3 uid="uid://cg2dyryhqisj6"]
 
+[ext_resource type="Script" path="res://Scripts/lesser_enemy_battle.gd" id="1_e62dg"]
 [ext_resource type="Texture2D" uid="uid://d04qletrahfet" path="res://Assets/Fire Worm/Sprites/Worm/Idle (1).png" id="1_s4vox"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b3lm3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i2kt6"]
 atlas = ExtResource("1_s4vox")
@@ -73,11 +76,17 @@ animations = [{
 "speed": 8.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_b3lm3"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2cg5e"]
 
 [node name="LesserEnemyBattle" type="CharacterBody2D"]
+position = Vector2(133, 0)
+script = ExtResource("1_e62dg")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_b3lm3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -87,13 +96,9 @@ frame = 6
 frame_progress = 0.535969
 flip_h = true
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, 3)
-shape = SubResource("RectangleShape2D_b3lm3")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-12, 3)
 shape = SubResource("RectangleShape2D_2cg5e")
 debug_color = Color(0.877008, 0, 0.0337682, 0.42)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
