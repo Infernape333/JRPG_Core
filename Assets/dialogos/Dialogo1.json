@@ -1,6 +1,14 @@
 [
-   {"name": "Strange Man", "text": "Aaaah é você"},
-   {"name": "Strange Man", "text": "Voce deve ser aquele que esta atras da criaturas folcloricas"},
-   {"name": "Strange Man", "text": "Mas voce deve ter cuidado, é perigoso andar por ai desprotegido"},
-   {"name": "Strange Man", "text": "Lute comigo e veremos se voce tem força para ir"}
+   {"name": "Player", "text": "Finalmente encontrei você, Boi Tatá! Estou pronto para enfrentá-lo!"},
+   {"name": "Boi Tatá", "text": "Humano audacioso, você realmente acha que pode me derrotar?"},
+   {"name": "Player", "text": "Eu me preparei bem. Não vou recuar agora!"},
+   {"name": "Boi Tatá", "text": "Antes de cruzar espadas ou poderes, permita-me perguntar: você sabe quem eu sou e por que protejo estas terras?"},
+   {"name": "Player", "text": "Só sei que dizem que você é perigoso e queima aqueles que cruzam seu caminho."},
+   {"name": "Boi Tatá", "text": "Perigoso? Talvez. Mas apenas para aqueles que ameaçam a natureza que jurei proteger."},
+   {"name": "Boi Tatá", "text": "Eu sou o espírito do fogo, guardião dos rios e das florestas. Antigamente, os humanos me chamavam de 'O Cobra de Fogo'. Dizem que minha forma serpenteia por onde houver destruição."},
+   {"name": "Player", "text": "Mas por que você faz isso?"},
+   {"name": "Boi Tatá", "text": "Séculos atrás, fui invocado para salvar a natureza de um incêndio devastador. Desde então, carrego este fogo eterno, usando-o para proteger o que restou."},
+   {"name": "Player", "text": "Eu não sabia disso..."},
+   {"name": "Boi Tatá", "text": "Agora que sabe, ainda deseja me enfrentar? Se for digno, eu testarei sua coragem."},
+   {"name": "Player", "text": "Estou pronto! Vamos lutar!"}
 ]

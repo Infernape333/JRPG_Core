@@ -271,7 +271,7 @@ shape = SubResource("RectangleShape2D_b3lm3")
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_w8j8u")
 animation = &"Death"
-frame_progress = 0.278211
+frame_progress = 0.293459
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
