@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dbpwkt27xwi6t"]
 
 [ext_resource type="Script" path="res://Scripts/inimigo_ataque.gd" id="1_x5qka"]
-[ext_resource type="Texture2D" uid="uid://cix2t537oho5p" path="res://Assets/Fire Worm/Sprites/Worm/Attack.png" id="2_saqff"]
+[ext_resource type="Texture2D" path="res://Assets/Fire Worm/Sprites/Worm/Attack.png" id="2_saqff"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l0bts"]
 size = Vector2(17, 23.6667)

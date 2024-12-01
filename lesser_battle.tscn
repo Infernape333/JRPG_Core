@@ -5,8 +5,8 @@
 [node name="LesserBattle" type="Node2D"]
 script = ExtResource("1_cfj0q")
 
-[node name="PlayerPosition" type="Marker2D" parent="."]
-position = Vector2(340, 367)
-
 [node name="EnemyPosition" type="Marker2D" parent="."]
-position = Vector2(806, 355)
+position = Vector2(371, 365)
+
+[node name="PlayerPosition" type="Marker2D" parent="."]
+position = Vector2(731, 367)

@@ -190,7 +190,7 @@ debug_color = Color(10, 0, 0, 0.42)
 [node name="Animated_inimigo" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_lf3ol")
-animation = &"idle"
+animation = &"morte"
 flip_h = true
 
 [node name="Collision_inimigo" type="CollisionShape2D" parent="."]

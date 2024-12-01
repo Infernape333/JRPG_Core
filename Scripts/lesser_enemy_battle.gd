@@ -55,7 +55,7 @@ func heal(amount: int):
 func game_over():
 	print("Fim do jogo! O Inimigo perdeu.")
 	$Animated_inimigo.stop()
-	$Animated_inimigo.play("morte")
+	$Animated_inimigo.play("Death")
 	await $Animated_inimigo.animation_finished
 	get_tree().change_scene_to_file("res://Cenas/mundo.tscn")
 
@@ -69,17 +69,16 @@ func _on_turn_changed(new_turn):
 
 func _on_area_2d_body_entered(body):
 	await get_tree().create_timer(.5).timeout
-	$Animated_inimigo.play("dano")
+	$Animated_inimigo.play("Hit")
 	await $Animated_inimigo.animation_finished
 	$Animated_inimigo.play("idle")
-
 
 var opcoes_de_ataque_aleatorio : Array = []
 
 var is_attacking = false
 
 func gerar_ataques_aleatorios():
-	var opcoes_de_ataque = ["fogo"]
+	var opcoes_de_ataque = ["mordida"]
 	var ataques_aleatorios = []
 	var numero_de_ataques = 8
 	randomize()
@@ -98,12 +97,13 @@ func enemy_attack():
 		break
 
 func ataque(ataque):
-	if ataque == "fogo":
-		$AnimationPlayer.play("ataque")
-		await $AnimationPlayer.animation_finished
-		print(self.visible)
-		fire_ball()
+	var posicao_atual = global_position
+	global_position = target.global_position
+	if ataque == "mordida":
+		$Animated_inimigo.play("Attacking")
+		await get_tree().create_timer(1.2).timeout
 		
+	global_position = posicao_atual
 	await get_tree().create_timer(2).timeout
 	
 	if !ataque == "nulo":
@@ -113,10 +113,3 @@ func ataque(ataque):
 	
 	is_attacking = false
 	TurnManager.switch_turn()
-
-const BolaDeFogo = preload("res://Cenas/fireball.tscn")
-func fire_ball():
-	var bola_de_fogo_instance = BolaDeFogo.instantiate()
-	get_parent().add_child(bola_de_fogo_instance)
-	bola_de_fogo_instance.position = Vector2(714, 347)
-

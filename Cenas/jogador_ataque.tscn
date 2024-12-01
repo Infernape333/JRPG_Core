@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bb5vwyk7k5f5e" path="res://Sprites_Player/Ponteira-Sheet.png" id="2_ii1dt"]
 [ext_resource type="Texture2D" uid="uid://bjl7scxbenesu" path="res://Sprites_Player/rabodearraia-Sheet.png" id="3_epkq1"]
 [ext_resource type="Script" path="res://Scripts/Control.gd" id="4_2edqb"]
-[ext_resource type="Theme" path="res://Assets/tema_butaoha.tres" id="5_tl2hf"]
+[ext_resource type="Theme" uid="uid://b58wd682c5ioc" path="res://Assets/tema_butaoha.tres" id="5_tl2hf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qwhtg"]
 atlas = ExtResource("2_ii1dt")

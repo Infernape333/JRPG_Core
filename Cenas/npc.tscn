@@ -93,7 +93,6 @@ sprite_frames = SubResource("SpriteFrames_6a57k")
 frame_progress = 0.936238
 
 [node name="Colisão" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(-4, 2)
 shape = SubResource("RectangleShape2D_e1ccu")
 
@@ -110,7 +109,6 @@ collision_mask = 2
 script = ExtResource("4_5waae")
 
 [node name="Area" type="CollisionShape2D" parent="Area2D"]
-visible = false
 position = Vector2(-2, 2)
 shape = SubResource("CircleShape2D_64m82")
 

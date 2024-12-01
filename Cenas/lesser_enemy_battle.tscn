@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://b82vyyq67uog"]
+[gd_scene load_steps=41 format=3 uid="uid://cg2dyryhqisj6"]
 
 [ext_resource type="Script" path="res://Scripts/lesser_enemy_battle.gd" id="1_e62dg"]
 [ext_resource type="Texture2D" uid="uid://d04qletrahfet" path="res://Assets/Fire Worm/Sprites/Worm/Idle (1).png" id="1_s4vox"]
@@ -174,8 +174,14 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_bwhyo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4q42a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mp11x")
 }],
-"loop": true,
+"loop": false,
 "name": &"Attacking",
 "speed": 12.0
 }, {
@@ -258,7 +264,6 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2cg5e"]
 
 [node name="LesserEnemyBattle" type="CharacterBody2D"]
-position = Vector2(133, 0)
 script = ExtResource("1_e62dg")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -267,11 +272,12 @@ script = ExtResource("1_e62dg")
 position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_b3lm3")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Animated_inimigo" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_w8j8u")
-animation = &"Death"
-frame_progress = 0.278211
+animation = &"Attacking"
+frame = 13
+frame_progress = 1.0
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
